@@ -1,0 +1,70 @@
+﻿@model List<BDAplicada.ViewModels.TiendasViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tiendas</title>
+</head>
+
+<body>
+    <h1>Tiendas</h1>
+    <div style="box-shadow:initial; text-align:center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Direccion</th>
+                    <th>Ventas Mes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tienda in Model)
+                {
+                    <tr id="@tienda.Id" onclick="@tienda.llamarControllerVendedores()">
+                        <td>@tienda.Direccion</td>
+                        <td>@tienda.VentasMes.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<style>
+    /* Estilos para la tabla */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Estilos para las cabeceras de la tabla */
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    /* Estilos para filas alternas */
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Estilos para filas al pasar el mouse sobre ellas */
+    tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    /* Estilos para hacer la tabla responsiva en dispositivos móviles */
+
+
+</style>
